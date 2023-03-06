@@ -1,7 +1,21 @@
+import { useState } from "react";
+import AddCategory from "./components/AddCategory";
+
 function App() {
-  return <>
-    <h1>Gif App</h1>
-  </>;
+  const [categories, setCategories] = useState([]);
+
+  return (
+    <>
+      <h1>Gif App</h1>
+      <AddCategory setCategories={setCategories} />
+
+      <ol>
+        {categories.map((category) => {
+          return <li key={category}>{category}</li>;
+        })}
+      </ol>
+    </>
+  );
 }
 
 export default App;
