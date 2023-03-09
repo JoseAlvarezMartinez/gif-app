@@ -4,10 +4,13 @@ import AddCategory from "./components/AddCategory";
 function App() {
   const [categories, setCategories] = useState([]);
 
+  const onAddCategory = (newCategory) => {
+    setCategories([newCategory, ...categories]);
+  };
   return (
     <>
       <h1>Gif App</h1>
-      <AddCategory setCategories={setCategories} />
+      <AddCategory onAddCategory={onAddCategory} />
 
       <ol>
         {categories.map((category) => {
