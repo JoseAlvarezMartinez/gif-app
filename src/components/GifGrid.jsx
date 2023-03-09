@@ -1,10 +1,8 @@
+import { getGif } from "../helpers/getGif";
+import { useEffect } from "react";
 const GifGrid = ({ category }) => {
-  const getGif = async () => {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=gc71ip42kT92TPgI6f04gy9G9xTWTj6c&q=${category}`;
-    const respuesta = await fetch(url)
-    const {data} = await respuesta.json()
-  };
-  getGif()
+  useEffect(() => getGif(category), []);
+
   return (
     <>
       <h3>{category}</h3>
