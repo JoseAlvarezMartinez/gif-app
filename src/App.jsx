@@ -5,6 +5,7 @@ function App() {
   const [categories, setCategories] = useState([]);
 
   const onAddCategory = (newCategory) => {
+    if (categories.includes(newCategory.toLowerCase()))return;
     setCategories([newCategory, ...categories]);
   };
   return (
